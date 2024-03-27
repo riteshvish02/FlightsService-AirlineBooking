@@ -1,4 +1,3 @@
-const e = require("express")
 const airplane = require("../models/airplane")
 const {AirlineRepo} = require("../repositories")
 
