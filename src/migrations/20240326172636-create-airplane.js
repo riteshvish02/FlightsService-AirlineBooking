@@ -18,6 +18,9 @@ module.exports = {
         type: Sequelize.INTEGER,
         defaultValue:0,
         allowNull:false,
+        validate:{
+          max:500,
+        }
        
       },
       createdAt: {
