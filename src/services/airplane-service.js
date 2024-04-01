@@ -37,10 +37,22 @@ async function getAirPlane(data){
        throw new AppError("can't fetch data of Airplane", StatusCodes.INTERNAL_SERVER_ERROR)
   
         }
+    }
 
+        async function getAirPlanes(){
+            try {
+                const Airplanes = await airplaneRepo.getAll()
+                return Airplanes;
+            } catch (error) {
+                console.log(error);
+              
+               throw new AppError("can't fetch data of Airplanes", StatusCodes.INTERNAL_SERVER_ERROR)
+          
+            }
 }
 
 module.exports = {
     CreateAirPlane,
-    getAirPlane
+    getAirPlane,
+    getAirPlanes
 };
