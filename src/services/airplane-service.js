@@ -31,28 +31,39 @@ async function getAirPlane(data){
         return Airplane;
     } catch (error) {
        if(error.StatusCode == StatusCodes.NOT_FOUND){
-        throw new AppError("The Airplane you requested is not present", StatusCodes.INTERNAL_SERVER_ERROR)
+        throw new AppError("The Airplane you requested is not present",error.StatusCode)
 
        }
        throw new AppError("can't fetch data of Airplane", StatusCodes.INTERNAL_SERVER_ERROR)
   
         }
-    }
+}
 
-        async function getAirPlanes(){
+async function getAirPlanes(){
             try {
                 const Airplanes = await airplaneRepo.getAll()
                 return Airplanes;
             } catch (error) {
-                console.log(error);
               
                throw new AppError("can't fetch data of Airplanes", StatusCodes.INTERNAL_SERVER_ERROR)
           
             }
 }
 
+async function destroyAirplane(data){
+    try {
+        const response = await airplaneRepo.destroy(data) 
+        return response;
+    } catch (error) {
+    if(error.StatusCode == StatusCodes.NOT_FOUND){
+        throw new AppError("The Airplane you requested to delete is not present", error.StatusCode)
+    }
+       throw new AppError("can't delete Aiplane Airplane", StatusCodes.INTERNAL_SERVER_ERROR)
+     }
+}
 module.exports = {
     CreateAirPlane,
     getAirPlane,
-    getAirPlanes
+    getAirPlanes,
+    destroyAirplane
 };
