@@ -9,4 +9,8 @@ router.post("/",
   Airplanecontroller.createAirplane
 )
 
+router.get("/:id",
+  Airplanecontroller.getAirplane
+)
+
 module.exports = router;

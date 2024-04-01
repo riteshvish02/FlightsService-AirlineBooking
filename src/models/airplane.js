@@ -27,7 +27,7 @@ module.exports = (sequelize, DataTypes) => {
       validate: {
         max:500,
       }
-    }
+    } 
   }, {
     sequelize,
     modelName: 'Airplane',

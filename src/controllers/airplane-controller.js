@@ -14,13 +14,31 @@ async function createAirplane(req, res, next){
       .json(SuccessResponse)
     } catch (error) {
         ErrorResponse.error = error
+        // console.log(error);
         return res
-        .status(StatusCodes.INTERNAL_SERVER_ERROR)
+        .status(error.StatusCode)
+        .json(ErrorResponse)
+        
+    }
+}
+
+async function getAirplane(req, res, next){
+    try {
+        const Airplane = await AirplaneService.getAirPlane(req.params.id)
+     SuccessResponse.data = Airplane;
+      return res
+      .status(StatusCodes.OK)
+      .json(SuccessResponse)
+    } catch (error) {
+        ErrorResponse.error = error
+        return res
+        .status(error.StatusCode)
         .json(ErrorResponse)
         
     }
 }
 
 module.exports = {
-    createAirplane
+    createAirplane,
+    getAirplane
 }
