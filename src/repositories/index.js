@@ -1,3 +1,4 @@
 module.exports = {
-   AirlineRepo: require("./airplane-repo")
+   AirlineRepo: require("./airplane-repo"),
+   CityRepo:require("./city-repo")
 }
