@@ -61,9 +61,28 @@ async function destroyAirplane(data){
        throw new AppError("can't delete Aiplane Airplane", StatusCodes.INTERNAL_SERVER_ERROR)
      }
 }
+
+async function updateAirplane(id,data){
+    try {
+        const response = await airplaneRepo.update(id,data) 
+        return response;
+    } catch (error) {
+    if(error.StatusCode == StatusCodes.NOT_FOUND){
+        throw new AppError("The Airplane you requested to update is not present", error.StatusCode)
+    }else if(error.name == "SequelizeValidationError"){
+        let Explanation = [];
+        error.errors.forEach(function(error) {
+            Explanation.push(error.message);
+        })
+        throw new AppError(Explanation,StatusCodes.BAD_REQUEST)
+    }
+       throw new AppError("can't update Aiplane Airplane", StatusCodes.INTERNAL_SERVER_ERROR)
+     }
+}
 module.exports = {
     CreateAirPlane,
     getAirPlane,
     getAirPlanes,
-    destroyAirplane
+    destroyAirplane,
+    updateAirplane
 };
