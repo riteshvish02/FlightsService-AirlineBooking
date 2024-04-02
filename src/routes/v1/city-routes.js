@@ -9,6 +9,10 @@ router.post("/",
   Citycontroller.createCity
 )
 
+router.delete("/:id",
+  Citycontroller.destroyCity
+)
+
 
 
 module.exports = router;

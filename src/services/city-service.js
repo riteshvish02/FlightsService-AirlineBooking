@@ -25,7 +25,25 @@ async function createCity(data){
 
 }
 
+async function destroyCity(data){
+    try {
+        const response = await cityRepo.destroy(data) 
+        return response;
+    } catch (error) {
+        // console.log(error);
+        // console.log(error.name);
+        if(error.StatusCode === StatusCodes.NOT_FOUND){
+           
+            throw new AppError("The Airplane you requested to delete is not present",error.StatusCode)
+        }
+        // console.log(error);  
+        throw new AppError("can't delete  City object", StatusCodes.INTERNAL_SERVER_ERROR)
+    }
+
+}
+
 
 module.exports = {
     createCity,
+    destroyCity
 };

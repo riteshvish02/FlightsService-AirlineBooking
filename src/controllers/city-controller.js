@@ -13,7 +13,7 @@ async function createCity(req, res, next){
       .json(SuccessResponse)
     } catch (error) {
         ErrorResponse.error = error
-        console.log(error);
+        // console.log(error);
         return res
         .status(error.StatusCode)
         .json(ErrorResponse)
@@ -21,8 +21,25 @@ async function createCity(req, res, next){
     }
 }
 
+async function destroyCity(req, res, next){
+    try {
+        const response = await CityService.destroyCity(req.params.id)
+        SuccessResponse.data = response;
+      return res
+      .status(StatusCodes.CREATED)
+      .json(SuccessResponse)
+    } catch (error) {
+        ErrorResponse.error = error
+        // console.log(error);
+        return res
+        .status(error.StatusCode)
+        .json(ErrorResponse)
+        
+    }
+}
 
 module.exports = {
     createCity,
+    destroyCity
    
 }
