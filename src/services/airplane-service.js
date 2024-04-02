@@ -1,5 +1,4 @@
 const { StatusCodes } = require("http-status-codes")
-const airplane = require("../models/airplane")
 const {AirlineRepo} = require("../repositories")
 
 const AppError = require("../utils/errors/app-error")
