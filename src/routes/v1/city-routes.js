@@ -13,6 +13,8 @@ router.delete("/:id",
   Citycontroller.destroyCity
 )
 
-
+router.patch("/:id",
+  Citycontroller.updateCity
+)
 
 module.exports = router;

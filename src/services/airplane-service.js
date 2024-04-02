@@ -57,7 +57,7 @@ async function destroyAirplane(data){
     if(error.StatusCode == StatusCodes.NOT_FOUND){
         throw new AppError("The Airplane you requested to delete is not present", error.StatusCode)
     }
-       throw new AppError("can't delete Aiplane Airplane", StatusCodes.INTERNAL_SERVER_ERROR)
+       throw new AppError("can't delete Aiplane ", StatusCodes.INTERNAL_SERVER_ERROR)
      }
 }
 
@@ -75,7 +75,7 @@ async function updateAirplane(id,data){
         })
         throw new AppError(Explanation,StatusCodes.BAD_REQUEST)
     }
-       throw new AppError("can't update Aiplane Airplane", StatusCodes.INTERNAL_SERVER_ERROR)
+       throw new AppError("can't update Aiplane ", StatusCodes.INTERNAL_SERVER_ERROR)
      }
 }
 module.exports = {
