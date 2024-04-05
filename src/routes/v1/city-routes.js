@@ -14,7 +14,7 @@ router.delete("/:id",
 )
 
 router.patch("/:id",
-  Citycontroller.updateCity
+  Citycontroller.updateCity 
 )
 
 module.exports = router;
