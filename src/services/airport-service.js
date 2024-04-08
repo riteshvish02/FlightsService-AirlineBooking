@@ -11,7 +11,7 @@ async function CreateAirPort(data){
         return Airport;
     } catch (error) {
         // console.log(error.name);
-        if(error.name == "SequelizeValidationError"){
+        if(error.name == "SequelizeValidationError" || error.name == "SequelizeUniqueConstraintError    "){
             let Explanation = [];
             error.errors.forEach(function(error) {
                 Explanation.push(error.message);
@@ -29,7 +29,7 @@ async function getAirPort(data){
         const Airport = await airportRepo.get(data) 
         return Airport;
     } catch (error) {
-       if(error.StatusCode == StatusCodes.NOT_FOUND){
+       if(error.StatusCode == StatusCodes.NOT_FOUND || error.name == "SequelizeUniqueConstraintError"){
         throw new AppError("The Airport you requested is not present",error.StatusCode)
 
        }
