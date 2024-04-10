@@ -13,5 +13,12 @@ app.use("/api",apiroutes)
 app.listen(serverconfig.PORT,async ()=>{
     console.log(`server listening on ${serverconfig.PORT}`);
     Logger.info(`server listening on ${serverconfig.PORT}`,"root",{})
+    // const {flight} = require("./models")
+    // const response = await flight.findAll({
+    //     where:{
+    //         totalSeats:140
+    //     }
+    // })
+    // console.log(response);
     
 })

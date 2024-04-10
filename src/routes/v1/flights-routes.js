@@ -13,8 +13,9 @@ router.post("/",
 router.get("/:id",
   Flightcontroller.getFlight
 )
+
 router.get("/",
-  Flightcontroller.getFlights
+  Flightcontroller.getAllflights
 )
 router.delete("/:id",
   Flightcontroller.destroyFlight
