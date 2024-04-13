@@ -1,8 +1,8 @@
 'use strict';
 /** @type {import('sequelize-cli').Migration} */
 
-const {SEATS_ENUM} = require("../utils")
-const {PREMIUM,ECONOMY,BUSINESS,FIRST_CLASS} = SEATS_ENUM.seats
+const {SEATS_ENUM} = require("../utils/common")
+const {PREMIUM,ECONOMY,BUSINESS,FIRST_CLASS} = SEATS_ENUM.Seats
 
 module.exports = {
   async up(queryInterface, Sequelize) {
