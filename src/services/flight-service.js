@@ -118,10 +118,20 @@ async function getAllFlights(query){
         throw new AppError("can't fetch data of Flights", StatusCodes.INTERNAL_SERVER_ERROR)
     }
 }
+
+async function UpdateSeats(data){
+    try {
+        const   response = await flightRepo.UpdateRemainingSeats(data.flightId,data.seats,data.dec)
+        return response
+    } catch (error) {
+        throw new AppError("can't update the data of Flights", StatusCodes.INTERNAL_SERVER_ERROR)
+    }
+}
 module.exports = {
     CreateFlight,
     getFlight,
     destroyFlight,
     updateFlight,
-    getAllFlights
+    getAllFlights,
+    UpdateSeats
 };

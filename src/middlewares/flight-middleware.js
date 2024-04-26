@@ -68,9 +68,20 @@ function timecheck(req, res, next) {
     }
     next();
 
-   }
+}
+function validateUpdateSeatRequest(req,res,next){
+    if(!req.body.seats){
+        ErrorResponse.message = "something went wrong while creating Airplane"
+        ErrorResponse.error =  new AppError(["flightId is not found in the incoming request"],StatusCodes.BAD_REQUEST)
+        return res 
+         .status(StatusCodes.BAD_REQUEST)
+         .json(ErrorResponse)
+    }
+   next()
+}
 
 module.exports = {
     validaterequest,
-    timecheck
+    timecheck,
+    validateUpdateSeatRequest
 }
