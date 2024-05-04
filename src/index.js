@@ -1,7 +1,7 @@
 const express = require('express');
 
 const app = express();
-        app.use(express.json());
+app.use(express.json());
 app.use(express.urlencoded({ extended: false}));
 const {serverconfig,Logger} = require("./config")
 // const {compareTime} = require('./utils/helpers/date-time-helpers')
