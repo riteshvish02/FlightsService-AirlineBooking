@@ -3,7 +3,7 @@ const {Flightcontroller} = require('../../controllers');
 const {Flightmiddleware} = require("../../middlewares")
 
 const router = express.Router();
-
+//only admin role
 router.post("/",
   Flightmiddleware.validaterequest,
   Flightmiddleware.timecheck,
@@ -17,12 +17,20 @@ router.get("/:id",
 router.get("/",
   Flightcontroller.getAllflights
 )
+
+//only admin role
+
 router.delete("/:id",
   Flightcontroller.destroyFlight
 )
+
+//only admin role
+
 router.patch("/:id",
   Flightcontroller.updateFlight
 )
+
+//only admin role
 
 router.patch("/:id/seats",
   Flightmiddleware.validateUpdateSeatRequest,

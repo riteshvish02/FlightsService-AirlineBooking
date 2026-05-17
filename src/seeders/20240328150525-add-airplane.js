@@ -25,6 +25,19 @@ module.exports = {
         createdAt: new Date(),
         updatedAt: new Date()
        }
+       ,
+       {
+        modelNumber: "Boeing 787",
+        capacity:300,
+        createdAt: new Date(),
+        updatedAt: new Date()
+       },
+       {
+        modelNumber: "Embraer E195",
+        capacity:120,
+        createdAt: new Date(),
+        updatedAt: new Date()
+       }
       ], {});
   },
 

@@ -88,6 +88,7 @@ async function getAllFlights(query){
             [Op.between]: [minprice, (!maxprice? 20000: maxprice )]
         }
     }
+    // customfilter.ritesh = {name :"ritesh"};
     if(query.travellers){
         customfilter.totalSeats = {
             [Op.gte]:query.travellers

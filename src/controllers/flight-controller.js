@@ -66,7 +66,7 @@ async function destroyFlight(req, res, next){
 
 async function updateFlight(req, res, next){
     try {
-        const response = await FlightService.updateFlight(req.params.id,req.body)
+       const response = await FlightService.updateFlight(req.params.id,req.body)
        SuccessResponse.data = response;
       return res
       .status(StatusCodes.OK)
